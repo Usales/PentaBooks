@@ -1,0 +1,35 @@
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.header-animado {
+  animation: slideDown 2s ease;
+}
+
+.header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  min-height: 80px;
+  position: relative;
+  overflow: visible;
+  width: 100%;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 40px;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+} 

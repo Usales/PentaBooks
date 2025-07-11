@@ -1,0 +1,31 @@
+.menu-item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-item__button {
+  width: 100%;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 12px 20px;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  transition: background-color 0.3s ease;
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+.menu-item__button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item__button:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+} 

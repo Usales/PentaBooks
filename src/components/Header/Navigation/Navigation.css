@@ -1,0 +1,42 @@
+.navigation {
+  position: relative;
+  margin: 0 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation__toggle {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation__toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #FD8325;
+  color: #FD8325;
+}
+
+.navigation__arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.navigation__toggle--active .navigation__arrow {
+  transform: rotate(180deg);
+} 
