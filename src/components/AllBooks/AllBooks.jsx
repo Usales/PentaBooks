@@ -228,14 +228,13 @@ const generos = [...new Set(todosOsLivros.map(livro => livro.genero))];
 
 const AllBooks = ({ isVisible, onClose, favoritos = [], toggleFavorito }) => {
   const [generoFiltro, setGeneroFiltro] = useState('Todos');
-  const [isVisibleSection, setIsVisibleSection] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
     if (isVisible) {
-      setIsVisibleSection(true);
+      // setIsVisibleSection(true); // Removido
     } else {
-      setIsVisibleSection(false);
+      // setIsVisibleSection(false); // Removido
     }
   }, [isVisible]);
 

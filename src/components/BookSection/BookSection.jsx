@@ -282,6 +282,7 @@ const BookSection = ({ favoritos = [], toggleFavorito }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    const node = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -294,13 +295,13 @@ const BookSection = ({ favoritos = [], toggleFavorito }) => {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (node) {
+      observer.observe(node);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (node) {
+        observer.unobserve(node);
       }
     };
   }, []);

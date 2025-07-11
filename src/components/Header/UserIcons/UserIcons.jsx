@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import UserIcon from './UserIcon/UserIcon';
 import './UserIcons.css';
 import lupa from '../../../imagens/lupa.png';
@@ -278,7 +278,7 @@ const UserIcons = () => {
     }
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = useCallback((event) => {
     if (searchRef.current && !searchRef.current.contains(event.target)) {
       setShowSearch(false);
       setSearchTerm('');
@@ -287,14 +287,14 @@ const UserIcons = () => {
     if (showLogin && loginRef.current && !loginRef.current.contains(event.target)) {
       setShowLogin(false);
     }
-  };
+  }, [showLogin]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showLogin]);
+  }, [showLogin, handleClickOutside]);
 
   return (
     <div className="user-icons">
