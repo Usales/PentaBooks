@@ -278,10 +278,14 @@ const livrosPorGenero = {
 
 const BookSection = ({ favoritos = [], toggleFavorito }) => {
   const [generoAtivo, setGeneroAtivo] = useState('filosofia');
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => window.innerWidth < 900);
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    if (window.innerWidth < 900) {
+      setIsVisible(true);
+      return;
+    }
     const node = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
