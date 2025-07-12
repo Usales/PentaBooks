@@ -1,30 +1,49 @@
 # PentaBooks
 
-PentaBooks é uma plataforma web moderna para descoberta, leitura e organização de livros digitais, com foco em usabilidade, performance e experiência do usuário. O projeto foi desenvolvido em React, com arquitetura modular, design responsivo e código limpo, visando escalabilidade e facilidade de manutenção.
+PentaBooks é uma plataforma web moderna para descoberta, leitura e organização de livros digitais, com foco em usabilidade, performance e experiência do usuário. O projeto foi desenvolvido em React, integrado com a API da Open Library, oferecendo acesso a milhares de livros reais com design responsivo e código limpo.
 
 ## Visão Geral
 
-- **Descubra livros digitais** organizados por gêneros, autores e categorias.
-- **Favoritos**: marque livros com estrela e acesse rapidamente na seção exclusiva.
-- **Busca inteligente**: pesquise por título, autor, gênero ou descrição com resultados em tempo real.
-- **Download de PDFs**: baixe livros diretamente dos cards, favoritos ou resultados de busca.
-- **Interface moderna e responsiva**: experiência consistente em desktop, tablet e mobile.
-- **Acessibilidade**: navegação por teclado, contraste adequado e feedback visual.
-- **Área administrativa**: login exclusivo para administrador (simulado).
+- **Biblioteca digital completa**: acesso a milhares de livros da Open Library
+- **Busca inteligente**: pesquise por título ou autor com resultados em tempo real
+- **Favoritos**: marque livros com estrela e acesse rapidamente na seção exclusiva
+- **Categorização automática**: livros organizados por gêneros baseados nos subjects da API
+- **Imagens das capas**: carregamento automático das capas dos livros
+- **Links diretos**: acesso direto às páginas oficiais dos livros na Open Library
+- **Interface moderna e responsiva**: experiência consistente em desktop, tablet e mobile
+- **Acessibilidade**: navegação por teclado, contraste adequado e feedback visual
 
 ## Principais Funcionalidades
 
-- Navegação por abas de gêneros e autores
-- Cards de livros com design responsivo e animações
-- Modal de todos os livros com filtro por categoria
-- Sistema de favoritos persistente (localStorage)
-- Pesquisa global com miniaturas e download rápido
-- Footer com informações de contato e redes sociais
-- Modal de login para área administrativa
+### 🔍 **Sistema de Busca Avançado**
+- Busca por título ou autor
+- Resultados em tempo real
+- Filtros por gênero/categoria
+- Interface intuitiva com dropdown de tipo de busca
+
+### 📚 **Biblioteca Digital**
+- Milhares de livros da Open Library
+- Categorização automática por gêneros
+- Imagens das capas carregadas automaticamente
+- Informações detalhadas dos livros
+
+### ⭐ **Sistema de Favoritos**
+- Marcação de livros favoritos
+- Persistência no localStorage
+- Seção exclusiva para favoritos
+- Sincronização automática
+
+### 🎨 **Interface Moderna**
+- Design responsivo e adaptativo
+- Animações suaves e feedback visual
+- Modal de todos os livros com filtros
+- Navegação intuitiva
 
 ## Arquitetura e Tecnologias
 
 - **React 19** (Create React App)
+- **Axios**: para comunicação com APIs
+- **Open Library API**: fonte de dados dos livros
 - **Componentização**: cada parte da interface é um componente reutilizável
 - **CSS puro**: estilização moderna, sem frameworks externos
 - **Persistência**: favoritos salvos no localStorage
@@ -34,23 +53,44 @@ PentaBooks é uma plataforma web moderna para descoberta, leitura e organizaçã
 ## Estrutura de Pastas
 
 ```
-penta-books/
-  ├── public/
-  ├── src/
-  │   ├── components/
-  │   │   ├── Header/
-  │   │   ├── Hero/
-  │   │   ├── BookSection/
-  │   │   ├── AllBooks/
-  │   │   ├── Favoritos/
-  │   │   └── Footer/
-  │   ├── imagens/
-  │   ├── Livros/
-  │   ├── App.js
-  │   └── index.js
-  ├── package.json
-  └── README.md
+PentaBooks/
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── Header/
+│   │   │   ├── Navigation/
+│   │   │   ├── Logo/
+│   │   │   └── UserIcons/
+│   │   ├── Hero/
+│   │   ├── BookSection/
+│   │   ├── AllBooks/
+│   │   ├── Favoritos/
+│   │   └── Footer/
+│   ├── servicos/
+│   │   └── livros.js          # Serviços da API Open Library
+│   ├── imagens/
+│   ├── Livros/               # PDFs locais (ainda disponíveis)
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+└── README.md
 ```
+
+## APIs Utilizadas
+
+### Open Library API
+- **Base URL**: `https://openlibrary.org`
+- **Endpoints principais**:
+  - `/search.json?subject=fiction&limit=20` - Livros populares
+  - `/search.json?title={titulo}` - Busca por título
+  - `/search.json?author={autor}` - Busca por autor
+  - `/works/{id}.json` - Detalhes de um livro específico
+  - `/covers.openlibrary.org/b/id/{cover_id}-L.jpg` - Imagens das capas
 
 ## Instalação e Execução
 
@@ -58,7 +98,7 @@ penta-books/
 2. **Clone o repositório:**
    ```bash
    git clone <url-do-repo>
-   cd penta-books
+   cd PentaBooks
    ```
 3. **Instale as dependências:**
    ```bash
@@ -82,12 +122,31 @@ penta-books/
 - `npm test` — executa testes (se aplicável)
 - `npm run eject` — expõe configurações avançadas do CRA
 
+## Como Usar
+
+### 🔍 **Fazendo Buscas**
+1. Clique em "Todas as Categorias" no header
+2. Use o dropdown para escolher entre "Buscar por título" ou "Buscar por autor"
+3. Digite o termo de busca no campo de texto
+4. Pressione Enter ou clique em "Buscar"
+
+### ⭐ **Gerenciando Favoritos**
+1. Clique na estrela em qualquer livro para favoritá-lo
+2. Acesse "Favoritos" no header para ver todos os livros salvos
+3. Clique novamente na estrela para remover dos favoritos
+
+### 📚 **Navegando pelos Livros**
+1. Use os filtros por categoria para organizar os resultados
+2. Clique em "Ver na Open Library" para acessar a página oficial do livro
+3. Explore diferentes gêneros e autores
+
 ## Padrões de Código e Boas Práticas
 
 - **Componentes funcionais** e hooks
 - **Separação de responsabilidades**: lógica, apresentação e estilos
 - **Nomenclatura clara** para arquivos, funções e variáveis
-- **Comentários explicativos** apenas onde necessário
+- **Tratamento de erros** em todas as chamadas de API
+- **Estados de loading** para melhor UX
 - **Atenção à acessibilidade** e responsividade
 - **Sem dependências desnecessárias**
 
@@ -97,11 +156,28 @@ penta-books/
 - Contraste de cores adequado
 - Feedback visual em botões e interações
 - Uso de `aria-label` e roles semânticos
+- Estados de loading e erro claros
 
 ## Responsividade
 
 - Layout adaptado para diferentes tamanhos de tela
-- Testado em Chrome, Firefox, Edge e mobile
+- Busca responsiva com elementos flexíveis
+- Cards de livros otimizados para mobile
+- Testado em Chrome, Firefox, Edge e dispositivos móveis
+
+## Funcionalidades Técnicas
+
+### 🚀 **Performance**
+- Lazy loading de imagens
+- Tratamento de erros de carregamento
+- Estados de loading para feedback visual
+- Otimização de chamadas de API
+
+### 🔧 **Manutenibilidade**
+- Código modular e reutilizável
+- Serviços separados para APIs
+- Componentes bem estruturados
+- Documentação clara
 
 ## Como Contribuir
 

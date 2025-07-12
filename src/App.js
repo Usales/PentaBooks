@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import BookSection from './components/BookSection/BookSection';
 import Footer from './components/Footer/Footer';
-import AllBooks from './components/AllBooks/AllBooks';
+import AllBooksAPI from './components/AllBooks/AllBooksAPI';
 import Favoritos from './components/Favoritos/Favoritos';
 import './App.css';
 
@@ -52,7 +52,7 @@ function App() {
       <Hero />
       <BookSection favoritos={favoritos} toggleFavorito={toggleFavorito} />
       <Footer />
-      <AllBooks isVisible={showAllBooks} onClose={handleCloseAllBooks} favoritos={favoritos} toggleFavorito={toggleFavorito} />
+      <AllBooksAPI isVisible={showAllBooks} onClose={handleCloseAllBooks} favoritos={favoritos} toggleFavorito={toggleFavorito} />
       <Favoritos isVisible={showFavoritos} onClose={handleCloseFavoritos} favoritos={favoritos} toggleFavorito={toggleFavorito} />
     </div>
   );
