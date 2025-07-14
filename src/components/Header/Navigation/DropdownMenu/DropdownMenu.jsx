@@ -4,8 +4,7 @@ import './DropdownMenu.css';
 
 const MENU_OPTIONS = [
   { id: 'categories', label: 'Categorias' },
-  { id: 'favorites', label: 'Favoritos' },
-  { id: 'bookshelf', label: 'Minha Estante' }
+  { id: 'favorites', label: 'Favoritos' }
 ];
 
 const DropdownMenu = ({ isOpen, onOpenAllBooks, onOpenFavoritos }) => {
@@ -18,7 +17,6 @@ const DropdownMenu = ({ isOpen, onOpenAllBooks, onOpenFavoritos }) => {
     if (id === 'favorites') {
       onOpenFavoritos();
     }
-    // Aqui você pode adicionar lógica para outros itens do menu
   };
 
   return (

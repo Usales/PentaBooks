@@ -1,6 +1,35 @@
 import axios from "axios"
 
-const openLibraryAPI = axios.create({baseURL: "https://openlibrary.org"})
+const openLibraryAPI = axios.create({
+  baseURL: "https://openlibrary.org",
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  }
+})
+
+// Interceptor para debug
+openLibraryAPI.interceptors.request.use(
+  (config) => {
+    console.log('Requisição sendo feita:', config.url);
+    return config;
+  },
+  (error) => {
+    console.error('Erro na requisição:', error);
+    return Promise.reject(error);
+  }
+);
+
+openLibraryAPI.interceptors.response.use(
+  (response) => {
+    console.log('Resposta recebida:', response.status, response.config.url);
+    return response;
+  },
+  (error) => {
+    console.error('Erro na resposta:', error.response?.status, error.message);
+    return Promise.reject(error);
+  }
+);
 
 // Buscar livros por título
 async function buscarLivrosPorTitulo(titulo = "harry potter"){

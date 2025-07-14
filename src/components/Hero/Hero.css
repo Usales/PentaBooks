@@ -251,7 +251,7 @@
   }
 }
 
-/* Responsivo para balões */
+/* Responsivo para tablets */
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
@@ -263,8 +263,13 @@
   }
   
   .hero__author-photo {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero__photo-wrapper {
+    width: 200px;
+    height: 200px;
   }
   
   .hero__tooltip {
@@ -297,5 +302,104 @@
   }
   .balao-top-right, .balao-bottom-right {
     right: -40px;
+  }
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 4vw;
+    min-height: 70vh;
+  }
+  
+  .hero__title {
+    font-size: 2.8rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero__author-photo {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .hero__photo-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .hero__tooltip-message {
+    font-size: 0.9rem;
+  }
+  
+  .hero__social-links {
+    gap: 8px;
+  }
+  
+  .hero__social-link {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsivo para celulares pequenos */
+@media (max-width: 480px) {
+  .hero {
+    padding: 20px 3vw;
+    min-height: 60vh;
+  }
+  
+  .hero__title {
+    font-size: 2.2rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero__author-photo {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .hero__photo-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .hero__tooltip {
+    padding: 12px;
+  }
+  
+  .hero__tooltip-message {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero__social-links {
+    gap: 6px;
+  }
+  
+  .hero__social-link {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+  
+  .balao {
+    min-width: 70px;
+    max-width: 100px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+  
+  .balao-top-left, .balao-bottom-left {
+    left: -30px;
+  }
+  
+  .balao-top-right, .balao-bottom-right {
+    right: -30px;
   }
 } 

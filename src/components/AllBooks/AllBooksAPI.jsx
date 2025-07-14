@@ -17,11 +17,12 @@ const AllBooksAPI = ({ isVisible, onClose, favoritos = [], toggleFavorito }) => 
       try {
         setLoading(true);
         const livrosData = await getLivros();
+        console.log('Livros carregados:', livrosData.length);
         setLivros(livrosData);
         setError(null);
       } catch (err) {
+        console.error('Erro ao carregar livros iniciais:', err);
         setError('Erro ao carregar livros');
-        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -54,8 +55,8 @@ const AllBooksAPI = ({ isVisible, onClose, favoritos = [], toggleFavorito }) => 
       setLivros(livrosData);
       setError(null);
     } catch (err) {
+      console.error('Erro na busca:', err);
       setError('Erro ao buscar livros');
-      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -147,6 +148,17 @@ const AllBooksAPI = ({ isVisible, onClose, favoritos = [], toggleFavorito }) => 
             <button onClick={handleBusca} className="search-btn">
               Buscar
             </button>
+            <button 
+              onClick={() => {
+                setBusca('harry potter');
+                setTipoBusca('titulo');
+                setTimeout(() => handleBusca(), 100);
+              }} 
+              className="search-btn"
+              style={{ marginLeft: '10px', backgroundColor: '#4CAF50' }}
+            >
+              Teste API
+            </button>
           </div>
         </div>
 
@@ -174,6 +186,16 @@ const AllBooksAPI = ({ isVisible, onClose, favoritos = [], toggleFavorito }) => 
         {error && (
           <div className="error">
             <p>{error}</p>
+          </div>
+        )}
+
+        {/* Debug info */}
+        {!loading && !error && (
+          <div style={{ padding: '10px', backgroundColor: '#f0f0f0', margin: '10px 0', borderRadius: '5px' }}>
+            <p>Total de livros: {livros.length}</p>
+            <p>Livros filtrados: {livrosFiltrados.length}</p>
+            <p>Categorias: {generos.length}</p>
+            <p>Filtro atual: {generoFiltro}</p>
           </div>
         )}
 
