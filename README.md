@@ -179,14 +179,6 @@ PentaBooks/
 - Componentes bem estruturados
 - Documentação clara
 
-## Como Contribuir
-
-1. Faça um fork do projeto
-2. Crie uma branch: `git checkout -b feature/nome-da-feature`
-3. Commit suas alterações: `git commit -m 'feat: minha contribuição'`
-4. Push para o fork: `git push origin feature/nome-da-feature`
-5. Abra um Pull Request
-
 ## Licença
 
 Este projeto é open-source sob a licença MIT.
