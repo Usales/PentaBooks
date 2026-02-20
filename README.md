@@ -34,6 +34,7 @@ PentaBooks é uma plataforma web moderna para descoberta, leitura e organizaçã
 - Sincronização automática
 
 ### 🎨 **Interface Moderna**
+- Hero com CTA "Explorar Biblioteca" e copy direto
 - Design responsivo e adaptativo
 - Animações suaves e feedback visual
 - Modal de todos os livros com filtros
