@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="footer__section">
             <h3 className="footer__title">PentaBooks</h3>
             <p className="footer__description">
-              Projeto desenvolvido com o objetivo de praticar minhas habilidades de programação.
+              Uma plataforma moderna para descoberta e organização de livros digitais.
             </p>
           </div>
           
