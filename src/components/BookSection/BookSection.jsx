@@ -325,7 +325,7 @@ const BookSection = ({ favoritos = [], toggleFavorito }) => {
   };
 
   return (
-    <section className="book-section" ref={sectionRef}>
+    <section className="book-section" id="nossa-biblioteca" ref={sectionRef}>
       <div className="book-section__container">
         <h2 className={`book-section__title ${isVisible ? 'animate-in' : ''}`}>
           Nossa Biblioteca
