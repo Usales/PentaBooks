@@ -102,7 +102,7 @@
   transform: translateY(0);
 }
 
-/* Cards dos livros */
+/* Cards dos livros: profundidade, overlay nas capas, descrição 2 linhas */
 .book-card {
   background: rgba(40, 44, 52, 0.95);
   overflow: hidden;
