@@ -2,6 +2,8 @@ import React from 'react';
 import './Hero.css';
 import fotoAutor from '../../imagens/Foto.jpeg';
 
+/** Hero: título, copy, CTA para #nossa-biblioteca */
+
 const comentarios = [
   { text: 'Qual seu livro favorito?', className: 'balao balao-top-left' },
   { text: 'Já leu hoje?', className: 'balao balao-top-right' },
