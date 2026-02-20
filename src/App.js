@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+/** App: Header, Hero, BookSection, Footer, modais AllBooks e Favoritos */
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import BookSection from './components/BookSection/BookSection';
