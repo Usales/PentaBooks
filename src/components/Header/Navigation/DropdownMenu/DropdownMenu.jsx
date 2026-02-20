@@ -7,24 +7,30 @@ const MENU_OPTIONS = [
   { id: 'favorites', label: 'Favoritos' }
 ];
 
-const DropdownMenu = ({ isOpen, onOpenAllBooks, onOpenFavoritos }) => {
+const DropdownMenu = ({ id, isOpen, onClose, onOpenAllBooks, onOpenFavoritos }) => {
   if (!isOpen) return null;
 
-  const handleItemClick = (id) => {
-    if (id === 'categories') {
+  const handleItemClick = (itemId) => {
+    if (itemId === 'categories') {
       onOpenAllBooks();
     }
-    if (id === 'favorites') {
+    if (itemId === 'favorites') {
       onOpenFavoritos();
     }
+    onClose();
   };
 
   return (
-    <ul className="dropdown-menu">
+    <ul
+      id={id}
+      className="dropdown-menu"
+      role="menu"
+      aria-label="Opções do menu"
+    >
       {MENU_OPTIONS.map((option) => (
-        <MenuItem 
-          key={option.id} 
-          {...option} 
+        <MenuItem
+          key={option.id}
+          {...option}
           onItemClick={handleItemClick}
         />
       ))}

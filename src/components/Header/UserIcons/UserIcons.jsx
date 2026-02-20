@@ -296,6 +296,21 @@ const UserIcons = () => {
     };
   }, [showLogin, handleClickOutside]);
 
+  useEffect(() => {
+    if (!showLogin) return;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setShowLogin(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    const focusTimer = setTimeout(() => {
+      loginRef.current?.querySelector('input')?.focus();
+    }, 0);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      clearTimeout(focusTimer);
+    };
+  }, [showLogin]);
+
   return (
     <div className="user-icons">
       {USER_ICONS.map((icon, idx) => {
@@ -351,13 +366,45 @@ const UserIcons = () => {
             <React.Fragment key={idx}>
               {showLogin && (
                 <div className="login-modal-overlay">
-                  <div className="login-modal" ref={loginRef}>
-                    <button className="login-modal__close" onClick={() => setShowLogin(false)}>×</button>
-                    <h2>Login</h2>
-                    <p className="login-modal__admin-msg">Esta área é apenas para o administrador.</p>
-                    <form className="login-modal__form" onSubmit={e => { e.preventDefault(); setShowLogin(false); }}>
-                      <input type="text" className="login-modal__input" placeholder="E-mail ou usuário" required />
-                      <input type="password" className="login-modal__input" placeholder="Senha" required />
+                  <div
+                    className="login-modal login-modal--open"
+                    ref={loginRef}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="login-modal-title"
+                    aria-describedby="login-modal-desc"
+                  >
+                    <button
+                      type="button"
+                      className="login-modal__close"
+                      onClick={() => setShowLogin(false)}
+                      aria-label="Fechar"
+                    >
+                      ×
+                    </button>
+                    <h2 id="login-modal-title" className="login-modal__title">Login</h2>
+                    <p id="login-modal-desc" className="login-modal__admin-msg">
+                      Acesso restrito a administradores do PentaBooks.
+                    </p>
+                    <form className="login-modal__form" onSubmit={(e) => { e.preventDefault(); setShowLogin(false); }}>
+                      <label htmlFor="login-email" className="login-modal__label">E-mail</label>
+                      <input
+                        id="login-email"
+                        type="email"
+                        className="login-modal__input"
+                        placeholder="seu@email.com"
+                        autoComplete="email"
+                        required
+                      />
+                      <label htmlFor="login-password" className="login-modal__label">Senha</label>
+                      <input
+                        id="login-password"
+                        type="password"
+                        className="login-modal__input"
+                        placeholder="Senha"
+                        autoComplete="current-password"
+                        required
+                      />
                       <button type="submit" className="login-modal__btn">Entrar</button>
                     </form>
                   </div>

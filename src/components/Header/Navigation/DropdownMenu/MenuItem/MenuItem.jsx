@@ -7,8 +7,13 @@ const MenuItem = ({ id, label, onItemClick }) => {
   };
 
   return (
-    <li className="menu-item">
-      <button className="menu-item__button" onClick={handleClick}>
+    <li className="menu-item" role="none">
+      <button
+        type="button"
+        className="menu-item__button"
+        onClick={handleClick}
+        role="menuitem"
+      >
         {label}
       </button>
     </li>

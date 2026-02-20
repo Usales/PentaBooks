@@ -189,45 +189,104 @@
   }
 } 
 
+@keyframes loginOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes loginModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .login-modal-overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.7);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
   z-index: 3000;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: loginOverlayIn 0.2s ease;
 }
+
 .login-modal {
   background: #222;
   border-radius: 16px;
   padding: 32px 28px 24px 28px;
   min-width: 320px;
   max-width: 95vw;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.login-modal--open {
+  animation: loginModalIn 0.2s ease;
+}
+
 .login-modal__close {
   position: absolute;
   top: 12px;
-  right: 18px;
+  right: 12px;
+  padding: 8px 12px;
   background: none;
   border: none;
+  border-radius: 8px;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  line-height: 1;
   cursor: pointer;
   z-index: 10;
+  transition: color 0.2s, background 0.2s;
 }
+
+.login-modal__close:hover {
+  color: #FD8325;
+  background: rgba(253, 131, 37, 0.15);
+}
+
+.login-modal__close:focus-visible {
+  outline: 2px solid #FD8325;
+  outline-offset: 2px;
+}
+
+.login-modal__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
 .login-modal__form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
-  margin-top: 16px;
+  margin-top: 20px;
 }
+
+.login-modal__label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: -4px;
+}
+
 .login-modal__input {
   background: #181818;
   border: 1.5px solid #444;
@@ -238,9 +297,11 @@
   outline: none;
   transition: border 0.2s;
 }
+
 .login-modal__input:focus {
   border-color: #FD8325;
 }
+
 .login-modal__btn {
   background: #FD8325;
   color: #fff;
@@ -253,14 +314,15 @@
   margin-top: 8px;
   transition: background 0.2s;
 }
+
 .login-modal__btn:hover {
   background: #e6731a;
-} 
+}
 
 .login-modal__admin-msg {
   color: #FD8325;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 8px 0 0 0;
   text-align: center;
-  font-weight: bold;
+  font-weight: 500;
 } 
