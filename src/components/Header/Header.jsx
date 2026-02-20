@@ -4,6 +4,7 @@ import Navigation from './Navigation/Navigation';
 import UserIcons from './UserIcons/UserIcons';
 import './Header.css';
 
+/** Header: logo, navegação, ícones (todos os livros / favoritos) */
 const Header = ({ onOpenAllBooks, onOpenFavoritos }) => {
   return (
     <header className="header header-animado">
