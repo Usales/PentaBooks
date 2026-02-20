@@ -47,29 +47,31 @@
   animation: slideInLeft 1.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.hero__subtitle:nth-of-type(1) {
+.hero__subtitle {
   animation-delay: 1s;
 }
 
-.hero__subtitle:nth-of-type(2) {
-  animation-delay: 2s;
-}
-
 .hero__cta {
-  background: #61dafb;
-  color: #222;
+  display: inline-block;
+  opacity: 0;
+  animation: slideInLeft 1s cubic-bezier(0.22, 1, 0.36, 1) 1.4s both;
+  background: #FD8325;
+  color: #fff;
   border: none;
   border-radius: 8px;
   padding: 14px 32px;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  margin-top: 8px;
 }
 
 .hero__cta:hover {
-  background: #21a1c4;
-  color: #fff;
+  background: #e6731a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 131, 37, 0.4);
 }
 
 .hero__image-container {
