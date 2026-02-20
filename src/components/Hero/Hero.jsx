@@ -16,11 +16,11 @@ const Hero = () => (
         Bem-vindo ao <span className="hero__brand">Penta</span>Books
       </h1>
       <p className="hero__subtitle">
-        Sua plataforma para descobrir, ler e compartilhar conhecimento com os melhores livros digitais.
+        Encontre clássicos, filosofia e literatura em um só lugar. Organize, leia e baixe em PDF — sem enrolação.
       </p>
-      <p className='hero__subtitle'>
-      Possui livros academicos utilizados em faculdades.
-      </p>
+      <a href="#nossa-biblioteca" className="hero__cta">
+        Explorar Biblioteca
+      </a>
     </div>
     <div className="hero__image-container">
       <div className="hero__photo-wrapper">
