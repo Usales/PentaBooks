@@ -51,6 +51,7 @@
   animation-delay: 1s;
 }
 
+/* CTA principal: laranja, hover com elevação */
 .hero__cta {
   display: inline-block;
   opacity: 0;
